@@ -21,7 +21,7 @@
     <app-ui-card [cardBody]="'body card Gestione Ordini'" [cardLink]="'/ordine/list'" [cardTitle]="'Gestione Ordini'"></app-ui-card>
   </div>
 
-  <div class="contenitore" *ifRole="['PIZZAIOLO_ROLE']">
+  <div class="contenitore" *ifRole="['PROPRIETARIO_ROLE']">
     <app-ui-card [cardBody]="'body card Report Ordini'" [cardLink]="'/ordine/report'" [cardTitle]="'Report Ordini'"></app-ui-card>
     <app-ui-card [cardBody]="'body card Statistiche'" [cardLink]="'/statistiche'" [cardTitle]="'Statistiche'"></app-ui-card>
   </div>
