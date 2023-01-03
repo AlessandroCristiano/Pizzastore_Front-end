@@ -16,11 +16,10 @@ export class AuthService {
   }
   constructor(private http: HttpClient) { }
 
-
   private userLoggedSubject$: BehaviorSubject<User | null> = new BehaviorSubject<User | null>(null)
 
   login(loginForm: User): Observable<User> {
-    return this.http.post<{'jwt-token': string}>(this.apiServer + "/auth/login", JSON .stringify(loginForm), this.httpOptions).pipe(
+    return this.http.post<{ 'jwt-token': string }>(this.apiServer + "/auth/login", JSON.stringify(loginForm), this.httpOptions).pipe(
       switchMap(res => of({ username: loginForm.username, token: res['jwt-token'] }))
     );
     // return this.http.post<User>("login", JSON .stringify(loginForm));
@@ -28,29 +27,31 @@ export class AuthService {
 
   setUserLogged(user: User | null) {
     this.userLoggedSubject$.next(user);
-    this.getUserRoles().subscribe({
-      next: res => user!.ruoli = res.roles,
-      complete: () => this.userLoggedSubject$.next(user)
-    });
+    if (user != null) {
+      this.getUserRoles().subscribe({
+        next: res => user!.ruoli = res.roles,
+        complete: () => this.userLoggedSubject$.next(user)
+      });
+    }
   }
 
   getUserLogged(): Observable<User | null> {
     return this.userLoggedSubject$.asObservable();
   }
 
-  getUserRoles(): Observable<{roles: string[]}> {
-    return this.http.get<{roles: string[]}>(this.apiServer + "/utente/userInfo");
+  getUserRoles(): Observable<{ roles: string[] }> {
+    return this.http.get<{ roles: string[] }>(this.apiServer + "/utente/userInfo");
   }
 
   isLoggedIn(): boolean {
     return this.userLoggedSubject$.value ? !!this.userLoggedSubject$.value.token : false;
   }
 
-  getUserToken(): string | null | undefined  {
+  getUserToken(): string | null | undefined {
     return this.userLoggedSubject$.value ? this.userLoggedSubject$.value.token : null;
   }
 
-  logout() {    
+  logout() {
     this.setUserLogged(null);
   }
 }
