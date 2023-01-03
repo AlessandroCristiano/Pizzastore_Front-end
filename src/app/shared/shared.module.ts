@@ -1,18 +1,23 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IsLoggedDirective } from './directives/is-logged.directive';
+import { IfRoleDirective } from './directives/if-role.directive';
+import { MaterialModule } from './material/material.module';
 
 
 
 @NgModule({
   declarations: [
-    IsLoggedDirective
+    IsLoggedDirective,
+    IfRoleDirective
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    MaterialModule
   ],
   exports:[
-    IsLoggedDirective
+    IsLoggedDirective,
+    IfRoleDirective
   ]
 })
 export class SharedModule { }

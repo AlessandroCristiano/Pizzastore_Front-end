@@ -2,9 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { WelcomeComponent } from './welcome.component';
 import { RouterModule, Routes } from '@angular/router';
-import { SharedModule } from 'src/app/shared/shared.module';
 import { MaterialModule } from 'src/app/shared/material/material.module';
 import { UiCardComponent } from 'src/app/shared/components/ui-card/ui-card.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 const routes: Routes = [
   {
@@ -15,14 +15,14 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    WelcomeComponent
+    WelcomeComponent,
   ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    SharedModule,
     MaterialModule,
-    UiCardComponent
+    UiCardComponent,
+    SharedModule
   ]
 })
 export class WelcomeModule { }

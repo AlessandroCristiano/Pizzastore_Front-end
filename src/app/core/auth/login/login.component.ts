@@ -39,7 +39,6 @@ export class LoginComponent {
         takeUntil(this.destroy$)
         ).subscribe(res => {
           this.authService.setUserLogged(res);
-          this.router.navigateByUrl("welcome");
       });
     }
 }
