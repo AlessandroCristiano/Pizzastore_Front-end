@@ -4,6 +4,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Cliente } from 'src/app/model/cliente';
+import { DataSearchService } from 'src/app/shared/services/data-search.service';
 import { ClienteService } from '../cliente.service';
 import { DialogComponent } from '../dialog/dialog.component';
 
@@ -13,7 +14,8 @@ import { DialogComponent } from '../dialog/dialog.component';
   styleUrls: ['./list-cliente.component.scss']
 })
 export class ListClienteComponent {
-  constructor(private clienteService: ClienteService, private router: Router, public dialog: MatDialog, private route: ActivatedRoute) {}
+  constructor(private clienteService: ClienteService, private router: Router, public dialog: MatDialog, private route: ActivatedRoute,
+    private dataSearchService: DataSearchService) {}
   dataSource: MatTableDataSource<Cliente> = new MatTableDataSource<Cliente>();
   displayedColumns: string[] = ['id', 'nome', 'cognome', 'indirizzo', 'attivo', 'azioni'];
 
@@ -21,6 +23,13 @@ export class ListClienteComponent {
 
   ngOnInit(): void {
     this.getData();
+    let operation = this.route.snapshot.queryParamMap.get('search');
+    if(operation == 'true') {
+      this.dataSource = this.dataSearchService.getData();
+    } else {
+      this.getData();
+      this.router.navigate(['/cliente/list']);
+    }
   }
 
   openDialog(idCliente: number): void {

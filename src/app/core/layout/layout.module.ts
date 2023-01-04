@@ -16,7 +16,7 @@ import { MaterialModule } from 'src/app/shared/material/material.module';
     SharedModule,
     RouterModule,
     MaterialModule,
-    
+    SharedModule
   ],
   exports:[
     ToolbarComponent
