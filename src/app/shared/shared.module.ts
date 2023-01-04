@@ -3,13 +3,16 @@ import { CommonModule } from '@angular/common';
 import { IsLoggedDirective } from './directives/is-logged.directive';
 import { IfRoleDirective } from './directives/if-role.directive';
 import { MaterialModule } from './material/material.module';
+import { SnackbarComponent } from './snackbar/snackbar.component';
+
 
 
 
 @NgModule({
   declarations: [
     IsLoggedDirective,
-    IfRoleDirective
+    IfRoleDirective,
+    SnackbarComponent
   ],
   imports: [
     CommonModule,
@@ -17,7 +20,8 @@ import { MaterialModule } from './material/material.module';
   ],
   exports:[
     IsLoggedDirective,
-    IfRoleDirective
+    IfRoleDirective,
+    SnackbarComponent
   ]
 })
 export class SharedModule { }

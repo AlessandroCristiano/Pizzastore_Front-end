@@ -12,11 +12,11 @@ const routes: Routes = [
     loadChildren:()=> import('./features/welcome/welcome.module').then(m => m.WelcomeModule),
     canActivate: [AuthGuard]
   },
-  // { 
-  //   path: 'regista', 
-  //   loadChildren:()=> import('./features/regista/regista.module').then(m => m.RegistaModule),
-  //   canActivate: [AuthGuard]
-  // },
+  { 
+    path: 'cliente', 
+    loadChildren:()=> import('./features/cliente/cliente.module').then(m => m.ClienteModule),
+    canActivate: [AuthGuard]
+  },
   // { 
   //   path: 'film', 
   //   loadChildren:()=> import('./features/film/film.module').then(m => m.FilmModule),

@@ -1,6 +1,6 @@
 export interface Cliente{
     id?:number;
-    nome?:String;
+    nome?:string;
     cognome?:string;
     indirizzo?:string;
     attivo?:boolean;

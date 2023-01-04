@@ -8,6 +8,7 @@ import { LayoutModule } from './core/layout/layout.module';
 import { SharedModule } from './shared/shared.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './core/auth/auth.interceptor';
+import { ErrorInterceptor } from './core/interceptors/error.interceptor';
 
 
 @NgModule({
@@ -26,6 +27,9 @@ import { AuthInterceptor } from './core/auth/auth.interceptor';
   providers: [
     {
       provide: HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS, useClass:ErrorInterceptor, multi: true
     }
   ],
   bootstrap: [AppComponent]
