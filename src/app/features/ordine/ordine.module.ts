@@ -30,6 +30,10 @@ const routes: Routes = [
     component: DetailOrdineComponent
   },
   {
+    path: 'report',
+    component: DetailOrdineComponent
+  },
+  {
     path: '',
     redirectTo: 'list',
     pathMatch: 'full'
