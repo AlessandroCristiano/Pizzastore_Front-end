@@ -34,6 +34,10 @@ const routes: Routes = [
     component: DetailOrdineComponent
   },
   {
+    path: 'statistiche',
+    component: DetailOrdineComponent
+  },
+  {
     path: '',
     redirectTo: 'list',
     pathMatch: 'full'
