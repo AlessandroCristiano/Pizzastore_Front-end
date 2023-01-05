@@ -20,7 +20,10 @@ export class ToolbarComponent {
     this.router.navigateByUrl('login');
   }
 
-  ricerca(){
+  ricercaClienti(){
     this.router.navigate(['/cliente/search'], {queryParams: {operation:"search"}})
+  }
+  ricercaPizze(){
+    this.router.navigate(['/pizza/search'], {queryParams: {operation:"search"}})
   }
 }
