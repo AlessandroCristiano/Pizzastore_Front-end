@@ -12,6 +12,10 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatDialogModule} from '@angular/material/dialog';  
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatSnackBarModule} from '@angular/material/snack-bar';  
+import {MatDatepickerModule} from '@angular/material/datepicker'; 
+import {MatNativeDateModule} from '@angular/material/core';
+import {MAT_MOMENT_DATE_ADAPTER_OPTIONS, MatMomentDateModule} from '@angular/material-moment-adapter';
+import {MatSelectModule} from '@angular/material/select';
 
 
 @NgModule({
@@ -29,7 +33,11 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatIconModule,
     MatDialogModule,
     MatCheckboxModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSelectModule,
+    MatMomentDateModule
     
   ],
   exports:[
@@ -44,7 +52,11 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatIconModule,
     MatDialogModule,
     MatCheckboxModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSelectModule,
+    MatMomentDateModule
   ]
 })
 export class MaterialModule { }
